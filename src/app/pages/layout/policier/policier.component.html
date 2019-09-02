@@ -1,0 +1,275 @@
+<div class="steppers-container row">
+    <div class="col-md-12 col-lg-12 col-xxxl-12">
+        <nb-card>
+            <nb-card-body>
+                <nb-stepper #stepper>
+                     <nb-step [stepControl]="presentationForm" label="Presentation"><!-- Présentation -->
+                        <form [formGroup]="presentationForm" (ngSubmit)="onPresentationFormSubmit()"
+                            class="step-container">
+                            <!-- <p class="lorem">
+                                   
+                            </p> -->
+                            <h1>Présentation</h1>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez le Matricule" class="form-control"
+                                        formControlName="matricule"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('matricule').invalid && (presentationForm.get('matricule').dirty || presentationForm.get('matricule').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input  nbInput type="text" placeholder="Entrez le nom" class="form-control"
+                                        formControlName="nom"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('nom').invalid && (presentationForm.get('nom').dirty || presentationForm.get('nom').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez le prénom" class="form-control"
+                                        formControlName="prenom"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('prenom').invalid && (presentationForm.get('prenom').dirty || presentationForm.get('prenom').touched)}">
+                                </div>
+                            </div>
+
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez son affectation actuelle"
+                                        class="form-control" formControlName="affectation_actuelle"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('affectation_actuelle').invalid && (presentationForm.get('affectation_actuelle').dirty || presentationForm.get('affectation_actuelle').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez sa specialite" class="form-control"
+                                        formControlName="specialite"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('specialite').invalid && (presentationForm.get('specialite').dirty || presentationForm.get('specialite').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez son departement" class="form-control"
+                                        formControlName="departement"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('departement').invalid && (presentationForm.get('departement').dirty || presentationForm.get('departement').touched)}">
+                                </div>
+                            </div>
+
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez son poste" class="form-control"
+                                        formControlName="poste"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('poste').invalid && (presentationForm.get('poste').dirty || presentationForm.get('poste').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input  nbInput type="text" placeholder="Entrez sa hierarchie" class="form-control"
+                                        formControlName="hierarchie"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('hierarchie').invalid && (presentationForm.get('hierarchie').dirty || presentationForm.get('hierarchie').touched)}">
+                                </div>
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez son nombre de subordonnée"
+                                        class="form-control" formControlName="nbre_subordonne"
+                                        [ngClass]="{'form-control-danger': presentationForm.get('nbre_subordonne').invalid && (presentationForm.get('nbre_subordonne').dirty || presentationForm.get('nbre_subordonne').touched)}">
+                                </div>
+                            </div>
+                            <button nbButton nbStepperNext>Suivant</button>
+                        </form>
+                    </nb-step>
+                    <nb-step [stepControl]="identiteForm" label="Identite"> <!-- Identite -->
+                        <form [formGroup]="identiteForm" (ngSubmit)="onIdentiteFormSubmit()" class="step-container">
+                                <h1>Identité</h1>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput placeholder="Date de Naissance" [nbDatepicker]="formpicker"
+                                        class="form-control" formControlName="date_naiss"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}">
+                                    <nb-datepicker #formpicker></nb-datepicker>
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Lieu de Naissance" class="form-control"
+                                        formControlName="lieu_naiss"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}">
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input  nbInput type="text" placeholder="Age" class="form-control"
+                                        formControlName="age"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}">
+                                </div>
+                            </div>
+                            <div class="input-group row ">
+
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+
+                                    <nb-select selected="Masculin" formControlName="sexe"
+                                        placeholder="Selectionner votre sexe" [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}" style="margin-top: -8px;">
+                                        <nb-option value="Masculin">Masculin</nb-option>
+                                        <nb-option value="Féminin">Féminin</nb-option>
+                                    </nb-select>
+                                    <!-- <input type="text" placeholder="Enter favorite movie" class="form-control"
+                                        formControlName="sexe"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}"> -->
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Situation matrimoniale" class="form-control"
+                                        formControlName="situ_matri"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}">
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Nombre d'enfant" class="form-control"
+                                        formControlName="nbr_enfant"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}">
+                                </div>
+                            </div>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-8 col-xxxl-4">
+                                    <!-- <input type="text" placeholder="Enter favorite movie" class="form-control"
+                                        formControlName="adresse"
+                                        [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}"> -->
+                                        
+                                        <textarea rows="3" nbInput fullWidth shape="round" class="form-control"
+                                        formControlName="adresse" placeholder="Entrer votre adresse" [ngClass]="{'form-control-danger': identiteForm.invalid && (identiteForm.dirty || identiteForm.touched)}"></textarea>
+                                    </div>
+                            </div>
+                            <button nbButton nbStepperPrevious>Précédent</button>
+                            <button nbButton nbStepperNext>Suivant</button>
+                        </form>
+                    </nb-step>
+                    <nb-step [stepControl]="carriereForm" label="Carriere"> <!-- Carriere -->
+                        <form [formGroup]="carriereForm" (ngSubmit)="onCarriereFormSubmit()" class="step-container">
+                            <!-- <p class="lorem">
+                                Pellentesque we gonna chung tortor.
+                                Sizzle pizzle. Fizzle izzle dolor dapibus fo shizzle mah nizzle fo rizzle, mah home
+                                g-dizzle tempus tempor.
+                                Maurizzle cool nibh owned turpizzle. My shizz fo shizzle tortor.
+                            </p> -->
+                            <h1>Carrière</h1>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez le Corps" class="form-control" formControlName="corps"
+                                        [ngClass]="{'form-control-danger': carriereForm.get('corps').invalid && (carriereForm.get('corps').dirty || carriereForm.get('corps').touched)}">
+                                </div>
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez le Grade" class="form-control" formControlName="grade"
+                                        [ngClass]="{'form-control-danger': carriereForm.get('grade').invalid && (carriereForm.get('grade').dirty || carriereForm.get('grade').touched)}">
+                                </div>
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez l'echelon" class="form-control" formControlName="echelon"
+                                        [ngClass]="{'form-control-danger': carriereForm.get('echelon').invalid && (carriereForm.get('echelon').dirty || carriereForm.get('echelon').touched)}">
+                                </div>
+                            </div>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput placeholder="Date d'Entré" [nbDatepicker]="date_entre" class="form-control"
+                                        formControlName="date_entre"
+                                        [ngClass]="{'form-control-danger': carriereForm.invalid && (carriereForm.dirty || carriereForm.touched)}">
+                                    <nb-datepicker #date_entre></nb-datepicker>
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Anciennete" class="form-control" formControlName="anciennete"
+                                        [ngClass]="{'form-control-danger': carriereForm.invalid && (carriereForm.dirty || carriereForm.touched)}">
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                        <input nbInput placeholder="Date de Prise de Service" [nbDatepicker]="date_prise_actuel" class="form-control"
+                                            formControlName="date_prise_actuel"
+                                            [ngClass]="{'form-control-danger': carriereForm.invalid && (carriereForm.dirty || carriereForm.touched)}">
+                                        <nb-datepicker #date_prise_actuel></nb-datepicker>
+                                    </div>
+                            </div>
+                            <div class="input-group row ">
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Référence Grille Salariale" class="form-control"
+                                        formControlName="ref_grille_salaire"
+                                        [ngClass]="{'form-control-danger': carriereForm.invalid && (carriereForm.dirty || carriereForm.touched)}">
+                                </div>
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Pondération Salariale" class="form-control" formControlName="ponde_salaire"
+                                        [ngClass]="{'form-control-danger': carriereForm.invalid && (carriereForm.dirty || carriereForm.touched)}">
+                                </div>
+                            </div>
+                                
+                            <button nbButton nbStepperPrevious>Précédent</button>
+                            <button  *ngFor="let status of statuses" nbButton [status]="status">
+                                Enregistrer Une Carrière
+                              </button>
+                            <button nbButton nbStepperNext>Suivant</button>
+                            <!-- Ajout du tableau -->
+                            <nb-card>
+                                <nb-card-header>
+                                    Les Différentes Carrières du Policier
+                                </nb-card-header>
+
+                                <nb-card-body>
+                                    <ng2-smart-table [settings]="settingsCarriere" [source]="sourceCarriere" (deleteConfirm)="onDeleteConfirm($event)">
+                                    </ng2-smart-table>
+                                </nb-card-body>
+                            </nb-card>
+
+                            <!-- Fin Ajout du tableau -->
+
+                        </form>
+                    </nb-step>
+                    <nb-step [stepControl]="distinctionForm" label="Disctinction"> <!-- Disctinction -->
+                        <form [formGroup]="distinctionForm" (ngSubmit)="onDistinctionFormSubmit()"
+                            class="step-container">
+                            <!-- <p class="lorem">
+                                Things boom shackalack rhoncus yo. In fo shizzle my nizzle gangsta platea dictumst.
+                                Check it out pot.
+                            </p> -->
+                            <h1>Disctinction</h1>
+                            <div class="input-group row ">
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez le Nombre de Disctinction" class="form-control" formControlName="nbr_disctinction"
+                                        [ngClass]="{'form-control-danger': distinctionForm.get('nbr_disctinction').invalid && (distinctionForm.get('nbr_disctinction').dirty || distinctionForm.get('nbr_disctinction').touched)}">
+                                </div>
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez l'Honneur'" class="form-control" formControlName="honneur"
+                                        [ngClass]="{'form-control-danger': distinctionForm.get('honneur').invalid && (distinctionForm.get('honneur').dirty || distinctionForm.get('honneur').touched)}">
+                                </div>
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Entrez l'Avertissement" class="form-control" formControlName="avertissement"
+                                        [ngClass]="{'form-control-danger': distinctionForm.get('avertissement').invalid && (distinctionForm.get('avertissement').dirty || distinctionForm.get('avertissement').touched)}">
+                                </div>
+                            </div>
+                            <div class="input-group row ">
+                            
+                                <div class="col-md-12 col-lg-4 col-xxxl-4">
+                                    <input nbInput type="text" placeholder="Blame" class="form-control"
+                                        formControlName="blame"
+                                        [ngClass]="{'form-control-danger': distinctionForm.get('blame').invalid && (distinctionForm.get('blame').dirty || distinctionForm.get('blame').touched)}">
+                                </div>
+                                
+                            </div>
+                            <button nbButton nbStepperPrevious>Précédent</button>
+                            <button  *ngFor="let status of statuses" nbButton [status]="status">
+                                Enregistrer Une Disctinction
+                              </button>
+                            <button nbButton nbStepperNext>Confirmer</button>
+                            <!-- Ajout du tableau -->
+                            <nb-card>
+                                <nb-card-header>
+                                    Les Différentes Disctinction du Policier
+                                </nb-card-header>
+
+                                <nb-card-body>
+                                    <ng2-smart-table [settings]="settingsDistinction" [source]="sourceDisctinction" (deleteConfirm)="onDeleteConfirm($event)">
+                                    </ng2-smart-table>
+                                </nb-card-body>
+                            </nb-card>
+
+                            <!-- Fin Ajout du tableau -->
+                        </form>
+                    </nb-step>
+                    <nb-step [stepControl]="distinctionForm" [hidden]="true" label="Third step">
+                        <div class="step-container">
+                            <h3>Enregistrement effectué avec Succes!</h3>
+                            <button nbButton (click)="stepper.reset()">Entrez Un nouveau policier</button>
+                        </div>
+                    </nb-step>
+                </nb-stepper>
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+</div>
